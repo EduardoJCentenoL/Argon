@@ -30,7 +30,9 @@ class VehicleModelRequest extends FormRequest
         $model_id = is_object($modelRouteParam) ? $modelRouteParam->id : $modelRouteParam;
 
         return [
-            'name'
+            'name' => [
+                'required', 'string'
+            ]
         ];
     }
 }
