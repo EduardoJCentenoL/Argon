@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class VehicleModelRequest extends FormRequest
 {
@@ -31,7 +32,23 @@ class VehicleModelRequest extends FormRequest
 
         return [
             'name' => [
-                'required', 'string'
+                'required',
+                'string',
+                'min:2',
+                'max:150',
+                 // Le decimos: "Busca en la tabla vehicle_models, columna name...
+                Rule::unique('vehicle_models', 'name')
+                    // ...PERO solo busca donde la columna 'brand_id' coincida con la marca que mandó el usuario"
+                    ->where('brand_id', $this->input('brand_id'))
+                    // e ignora el registro actual si estamos editando
+                    ->ignore($model_id)
+            ],
+
+            // LLAVE FORANEA (Validacion que la marca exista)
+            'brand_id' => [
+                'required',
+                'integer',
+                'exists:brands,id' // Verifica que el ID de la marca sea real en la tabla 'brands'
             ]
         ];
     }
