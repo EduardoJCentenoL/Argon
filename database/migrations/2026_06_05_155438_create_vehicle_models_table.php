@@ -20,6 +20,9 @@ return new class extends Migration
             ->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->timestamps();
+
+            //? REGLA EN BD: Evita el mismo nombre de modelo repetido en la misma marca
+            $table->unique(['name', 'brand_id']);
         });
     }
 

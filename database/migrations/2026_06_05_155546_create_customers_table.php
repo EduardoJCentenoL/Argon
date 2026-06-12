@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('first_name', 50);
             $table->string('last_name', 50);
             $table->char('gender', 2);
-            $table->integer('age');
-            $table->string('doc_number', 16);
-            $table->string('email_adrees', 150)->nullable();
-            $table->string('phone_number', 16);
+            $table->date('birth_day');
+            $table->string('doc_number', 16)->unique();
+            $table->string('email_address', 150)->nullable()->unique();
+            $table->string('phone_number', 16)->unique();
             $table->text('address');
             $table->timestamps();
         });

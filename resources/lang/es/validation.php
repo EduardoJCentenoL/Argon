@@ -39,5 +39,14 @@ return [
         'failure_id' => 'falla reportada',
         'total_cost' => 'costo total',
         'is_urgent' => 'prioridad urgente',
+        //? attributes de customers y employees
+        'first_name' => 'nombre',
+        'last_name' => 'apellido',
+        'gender' => 'género',
+        'birth_date' => 'fecha de nacimiento',
+        'doc_number' => 'número de documento',
+        'email_address' => 'correo electrónico',
+        'phone_number' => 'número de teléfono',
+        'address' => 'dirección',
     ],
 ];
