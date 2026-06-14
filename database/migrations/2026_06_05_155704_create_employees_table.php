@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('first_name', 100);
             $table->string('last_name', 100);
             $table->char('gender', 2);
-            $table->integer('age');
-            $table->string('doc_number', 16);
-            $table->string('email_address', 150);
+            $table->date('birth_date');
+            $table->string('doc_number', 16)->unique();
+            $table->string('email_address', 150)->unique();
             $table->boolean('is_active')->default(true);
 
             //? Relaciones(FK)

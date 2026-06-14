@@ -14,16 +14,16 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('license_plate', 20);
+            $table->string('license_plate', 20)->unique();
             $table->smallInteger('model_year', 4)->unsigned();
             $table->date('production_date')->nullable();
             $table->string('color', 50);
             $table->string('engine', 100);
             $table->string('transmission', 50);
-            $table->text('vehicle_observations')->nullable();
+            $table->text('vehicle_observations');
 
             //? Relaciones (FK)
-            $table->foreignId('vehicle_model_id')->constrained('vehicle_model')
+            $table->foreignId('vehicle_model_id')->constrained('vehicle_models')
             ->cascadeOnUpdate()->cascadeOnDelete();
 
             $table->foreignId('customer_id')->constrained('customers')

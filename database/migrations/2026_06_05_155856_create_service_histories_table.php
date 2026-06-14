@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('service_histories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->datetimes('completion_date');
-            $table->decimal('labor_cost', 10, 2);
+            $table->dateTime('completion_date');
+            $table->decimal('labor_cost', 10, 2)->unsigned();
             $table->decimal('spare_parts_cost', 10, 2);
             $table->decimal('total_cost', 10, 2);
             $table->text('recomendations')->nullable();

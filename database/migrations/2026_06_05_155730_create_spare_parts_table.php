@@ -15,8 +15,8 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('name', 150);
             $table->string('sku', 50)->unique();
-            $table->integer('stock');
-            $table->decimal('price', 10, 2);
+            $table->smallInteger('stock')->unsigned();
+            $table->decimal('price', 10, 2)->unsigned();
 
             //?Relaciones
             $table->foreignId('brand_id')->constrained('brands')

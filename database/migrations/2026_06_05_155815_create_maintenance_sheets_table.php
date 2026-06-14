@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->dateTime('entry_date');
             $table->dateTime('estimated_delivery_date');
-            $table->integer('current_mileage');
+            $table->integer('current_mileage')->unsigned();
             $table->text('work_execution_details');
             $table->string('sheet_status', 50);
 
@@ -37,7 +37,7 @@ return new class extends Migration
         });
 
          //? Aplicar CHECK constraint con SQL nativo en lugar de enum
-        DB::statement('ALTER TABLE vehicles ADD CONSTRAINT chk_vehicle_transmission CHECK (transmission IN (
+        DB::statement('ALTER TABLE maintenance_sheets ADD CONSTRAINT chk_sheet_status CHECK (sheet_status IN (
         "RECEPCIONADO",
         "DIAGNOSTICO",
         "EN_ESPERA",

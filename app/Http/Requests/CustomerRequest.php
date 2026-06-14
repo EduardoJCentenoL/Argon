@@ -53,7 +53,31 @@ class CustomerRequest extends FormRequest
                 'before:today', // Evita que pongan fechas de nacimiento del futuro
                 'after:1920-01-01' //Evita fechas sin sentido o muy antiguas
             ],
-            ''
+            'doc_number'=> [
+                'required',
+                'string',
+                'min:5',
+                'max:16',
+                Rule::unique('customers', 'doc_number')->ignore($customer_id)
+            ],
+            'emial_address' => [
+                'nullable',
+                'string',
+                'max:150',
+                Rule::unique('customers', 'email_address')->ignore($customer_id)
+            ],
+            'phone_number' => [
+                'required',
+                'string',
+                'min:8',
+                'max:16',
+                Rule::unique('customers', 'phone_number')->ignore($customer_id)
+            ],
+            'address' => [
+                'required',
+                'string',
+                'min:5'
+            ]
         ];
     }
 }

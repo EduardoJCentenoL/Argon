@@ -12,7 +12,7 @@ class ServiceTypeRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -29,10 +29,13 @@ class ServiceTypeRequest extends FormRequest
     public function rules(): array
     {
         //? Obtenemos el parámetro de la ruta de forma segura ('brand')
-        $sercieTypeRouteParam = $this->route('brand');
+        $sercieTypeRouteParam = $this->route('service_type');
 
         //? Si es objeto (Route Model Binding) extrae el ID, si no, usa el valor directo.
         $service_type_id = is_object($sercieTypeRouteParam) ? $sercieTypeRouteParam->id : $sercieTypeRouteParam;
+
+        // Lista exacta de tu CHECK constraint de la base de datos
+        $permitted_types = ['Preventivo', 'Correctivo'];
 
         return [
             'name' => [
@@ -41,7 +44,8 @@ class ServiceTypeRequest extends FormRequest
                 'min:3',
                 'max:100',
                 // 3. Ignora el ID actual al actualizar, o no ignora nada al crear (si es nulo)
-                Rule::unique('specialties', 'name')->ignore($service_type_id)
+                Rule::unique('service_types', 'name')->ignore($service_type_id),
+                Rule::in($permitted_types)
             ],
             'service_description' => [
                 'nullable',
