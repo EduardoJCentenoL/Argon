@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandController;
 use App\Http\Controllers\Example\AnimalController;
 use App\Http\Controllers\Example\CategoryController;
 use App\Http\Controllers\Example\PostController;
@@ -27,6 +28,14 @@ Route::middleware('auth')->group(function () {
         Route::delete('/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
     });
 
+    //? INICIO DE MIS RUTAS
+    // Route::prefix('/brands')->group(function (){
+    //     Route::get('/index', fn() => view('brands.index'))->name('brands.index');
+    // });
+    // Reemplazamos la ruta estática que tenías por el recurso completo del CRUD de tu profesor
+    // Route::resource('brands', \App\Http\Controllers\BrandController::class); //?Ruta larga en caso de no llamar al Controlador con el use arriba
+    Route::resource('brands', BrandController::class);
+    //?FIN DE MIS RUTAS
     //rutas de ejemplo sin controlador con prefijo
     Route::prefix('/ejemplo')->group(function () {
         Route::get('/index', fn() => view('examples.ejemplo.index'))->name('ejemplo.index');
