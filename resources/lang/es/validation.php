@@ -28,6 +28,7 @@ return [
     //? Traduccion para el nombre de los campos en la db
     // Traducción de los nombres de los parámetros al español en los errores
     'attributes' => [
+        'name' => 'nombre',
         'entry_date' => 'fecha de entrada',
         'estimated_delivery_date' => 'fecha estimada de entrega',
         'current_mileage' => 'kilometraje actual',
