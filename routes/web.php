@@ -8,6 +8,7 @@ use App\Http\Controllers\Example\ProductController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CarrerController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use App\Livewire\Products\ProductList;
 use Illuminate\Support\Facades\Route;
 
@@ -38,6 +39,7 @@ Route::middleware('auth')->group(function () {
 
     //Routes of Roles
     // Route::resource('roles', RoleContro::class);
+    Route::resource('roles', RoleController::class);
     //?FIN DE MIS RUTAS
     //rutas de ejemplo sin controlador con prefijo
     Route::prefix('/ejemplo')->group(function () {
