@@ -35,6 +35,9 @@ Route::middleware('auth')->group(function () {
     // Reemplazamos la ruta estática que tenías por el recurso completo del CRUD de tu profesor
     // Route::resource('brands', \App\Http\Controllers\BrandController::class); //?Ruta larga en caso de no llamar al Controlador con el use arriba
     Route::resource('brands', BrandController::class);
+
+    //Routes of Roles
+    // Route::resource('roles', RoleContro::class);
     //?FIN DE MIS RUTAS
     //rutas de ejemplo sin controlador con prefijo
     Route::prefix('/ejemplo')->group(function () {
