@@ -24,13 +24,13 @@ class BrandController extends Controller
     //? Guarda una Marca recien creada en la base de datos
     public function store(BrandRequest $request){
         Brand::create($request->validated());
-        return redirect()->route('brands.index')->with('succes','Marca Creada');
+        return redirect()->route('brands.index')->with('success','Marca Creada');
     }
 
     //? Muestra una Marca especifica (opcional, pero mejor que este)
     public function show(string $id){
         $brand = Brand::findOrFail($id);
-        return view('Brand.show', compact('brand'));
+        return view('brands.show', compact('brand'));
     }
 
     //? Muestra el formulario para editar una Marca existente
@@ -44,13 +44,13 @@ class BrandController extends Controller
         // $brand = Brand::update($request->validated());
         $brand->update($request->validated());
 
-        return redirect()->route('brands.index')->with('succes', 'Marca Actualizada');
+        return redirect()->route('brands.index')->with('success', 'Marca Actualizada');
     }
 
     public function destroy(string $id){
         $brand = Brand::findOrFail($id);
         $brand->delete();
 
-        return redirect()->route('brands.index')->with('succes', 'Marca Eliminada');
+        return redirect()->route('brands.index')->with('success', 'Marca Eliminada');
     }
 }

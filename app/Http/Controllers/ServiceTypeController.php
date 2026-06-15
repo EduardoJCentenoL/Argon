@@ -10,32 +10,32 @@ class ServiceTypeController extends Controller
 {
     //? Mostrar el listado de Tipos de Servicios
     public function index() {
-        $services_types = ServiceType::all();
-        return view('services_types.index', compact('services_types'));
+        $service_types = ServiceType::all();
+        return view('service_types.index', compact('service_types'));
     }
 
     //? Mostrar el formulario para crear una nueva Tipo de Servicio
     public function create(){
         $service_type = new ServiceType();
-        return view('services_types.create', compact('service_type'));
+        return view('service_types.create', compact('service_type'));
     }
 
     //? Guarda una Tipo de Servicio recien creada en la base de datos
     public function store(ServiceTypeRequest $request){
         ServiceType::create($request->validated());
-        return redirect()->route('services_types.index')->with('succes','Tipo de Servicio Creada');
+        return redirect()->route('service_types.index')->with('success','Tipo de Servicio Creada');
     }
 
     //? Muestra una Tipo de Servicio especifica (opcional, pero mejor que este)
     public function show(string $id){
         $service_type = ServiceType::findOrFail($id);
-        return view('ServiceType.show', compact('service_type'));
+        return view('service_types.show', compact('service_type'));
     }
 
     //? Muestra el formulario para editar una Tipo de Servicio existente
     public function edit(string $id){
         $service_type = ServiceType::findOrFail($id);
-        return view('services_types.edit', compact('service_type'));
+        return view('service_types.edit', compact('service_type'));
     }
 
     //? Actualiza una Tipo de Servicio especifica en la base de datos
@@ -43,13 +43,13 @@ class ServiceTypeController extends Controller
         // $service_type = ServiceType::update($request->validated());
         $service_type->update($request->validated());
 
-        return redirect()->route('services_types.index')->with('succes', 'Tipo de Servicio Actualizada');
+        return redirect()->route('service_types.index')->with('success', 'Tipo de Servicio Actualizada');
     }
 
     public function destroy(string $id){
         $service_type = ServiceType::findOrFail($id);
         $service_type->delete();
 
-        return redirect()->route('services_types.index')->with('succes', 'Tipo de Servicio Eliminada');
+        return redirect()->route('service_types.index')->with('success', 'Tipo de Servicio Eliminada');
     }
 }

@@ -23,13 +23,13 @@ class ProviderController extends Controller
     //? Guarda una Proveedor recien creada en la base de datos
     public function store(ProviderRequest $request){
         Provider::create($request->validated());
-        return redirect()->route('providers.index')->with('succes','Provider Creada');
+        return redirect()->route('providers.index')->with('success','Provider Creada');
     }
 
     //? Muestra una Proveedor especifica (opcional, pero mejor que este)
     public function show(string $id){
         $provider = Provider::findOrFail($id);
-        return view('Provider.show', compact('provider'));
+        return view('providers.show', compact('provider'));
     }
 
     //? Muestra el formulario para editar un Proveedor existente
@@ -43,13 +43,13 @@ class ProviderController extends Controller
         // $provider = Provider::update($request->validated());
         $provider->update($request->validated());
 
-        return redirect()->route('providers.index')->with('succes', 'Proveedor Actualizado');
+        return redirect()->route('providers.index')->with('success', 'Proveedor Actualizado');
     }
 
     public function destroy(string $id){
         $provider = Provider::findOrFail($id);
         $provider->delete();
 
-        return redirect()->route('providers.index')->with('succes', 'Proveedor Eliminado');
+        return redirect()->route('providers.index')->with('success', 'Proveedor Eliminado');
     }
 }

@@ -23,13 +23,13 @@ class FailureController extends Controller
     //? Guarda una Falla recien creada en la base de datos
     public function store(FailureRequest $request){
         Failure::create($request->validated());
-        return redirect()->route('failures.index')->with('succes','Falla Creada');
+        return redirect()->route('failures.index')->with('success','Falla Creada');
     }
 
     //? Muestra una Falla especifica (opcional, pero mejor que este)
     public function show(string $id){
         $failure = Failure::findOrFail($id);
-        return view('Failure.show', compact('failure'));
+        return view('failures.show', compact('failure'));
     }
 
     //? Muestra el formulario para editar una Falla existente
@@ -43,13 +43,13 @@ class FailureController extends Controller
         // $failure = Failure::update($request->validated());
         $failure->update($request->validated());
 
-        return redirect()->route('failures.index')->with('succes', 'Falla Actualizada');
+        return redirect()->route('failures.index')->with('success', 'Falla Actualizada');
     }
 
     public function destroy(string $id){
         $failure = Failure::findOrFail($id);
         $failure->delete();
 
-        return redirect()->route('failures.index')->with('succes', 'Falla Eliminada');
+        return redirect()->route('failures.index')->with('success', 'Falla Eliminada');
     }
 }

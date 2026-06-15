@@ -23,13 +23,13 @@ class SpecialtyController extends Controller
     //? Guarda una Especialidad recien creada en la base de datos
     public function store(SpecialtyRequest $request){
         Specialty::create($request->validated());
-        return redirect()->route('specialties.index')->with('succes','Especialidad Creada');
+        return redirect()->route('specialties.index')->with('success','Especialidad Creada');
     }
 
     //? Muestra una Especialidad especifica (opcional, pero mejor que este)
     public function show(string $id){
         $specialty = Specialty::findOrFail($id);
-        return view('Specialty.show', compact('specialty'));
+        return view('specialties.show', compact('specialty'));
     }
 
     //? Muestra el formulario para editar una Especialidad existente
@@ -43,13 +43,13 @@ class SpecialtyController extends Controller
         // $specialty = Specialty::update($request->validated());
         $specialty->update($request->validated());
 
-        return redirect()->route('specialties.index')->with('succes', 'Especialidad Actualizada');
+        return redirect()->route('specialties.index')->with('success', 'Especialidad Actualizada');
     }
 
     public function destroy(string $id){
         $specialty = Specialty::findOrFail($id);
         $specialty->delete();
 
-        return redirect()->route('specialties.index')->with('succes', 'Especialidad Eliminada');
+        return redirect()->route('specialties.index')->with('success', 'Especialidad Eliminada');
     }
 }
