@@ -7,9 +7,23 @@ use App\Http\Controllers\Example\PostController;
 use App\Http\Controllers\Example\ProductController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\CarrerController;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\FailureController;
+use App\Http\Controllers\MaintenanceDetailController;
+use App\Http\Controllers\MaintenanceSheetController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ProviderController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\ServiceHistoryController;
+use App\Http\Controllers\ServiceTypeController;
+use App\Http\Controllers\ShiftController;
+use App\Http\Controllers\SparePartController;
+use App\Http\Controllers\SpecialtyController;
+use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\VehicleModelController;
 use App\Livewire\Products\ProductList;
+use App\Models\Specialty;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -40,6 +54,46 @@ Route::middleware('auth')->group(function () {
     //Routes of Roles
     // Route::resource('roles', RoleContro::class);
     Route::resource('roles', RoleController::class);
+
+    //Routes of Shifts
+    Route::resource('shifts', ShiftController::class);
+
+    //Routes of Specialties
+    Route::resource('specialties', SpecialtyController::class);
+
+    //Routes of ServiceTypes
+    Route::resource('service_types', ServiceTypeController::class);
+
+    //Routes of Failures
+    Route::resource('failures', FailureController::class);
+
+    //Routes of Providers
+    Route::resource('providers', ProviderController::class);
+
+    //Routes of VehicleModels
+    Route::resource('vehicle_models', VehicleModelController::class);
+
+    //Routes of Customers
+    Route::resource('customers', CustomerController::class);
+
+    //Routes of Employees
+    Route::resource('employees', EmployeeController::class);
+
+    //Routes of SpareParts
+    Route::resource('spare_parts', SparePartController::class);
+
+    //Routes of Vehicles
+    Route::resource('vehicles', VehicleController::class);
+
+    //Routes of MaintenanceSheets
+    Route::resource('maintenance_sheets', MaintenanceSheetController::class);
+
+    //Routes of ServiceHistories
+    Route::resource('service_histories', ServiceHistoryController::class);
+
+    //Routes of MaintenanceDetails
+    Route::resource('maintenance_details', MaintenanceDetailController::class);
+
     //?FIN DE MIS RUTAS
     //rutas de ejemplo sin controlador con prefijo
     Route::prefix('/ejemplo')->group(function () {
