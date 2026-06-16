@@ -36,7 +36,7 @@
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->specialty_description }}</td>
+                                            <td>{{ $item->service_description }}</td>
                                             <td>
                                                 <form action="{{ route('service_types.destroy', $item->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-success" href="{{ route('service_types.edit', $item->id) }}">
