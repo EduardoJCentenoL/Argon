@@ -26,7 +26,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Nombre del Servicio</th>
+                                        <th>Nombre de la Especialidad</th>
                                         <th>Descripcion</th>
                                         <th>Acciones</th>
                                     </tr>
