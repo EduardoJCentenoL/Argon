@@ -25,6 +25,10 @@ return [
         'string' => 'El campo :attribute no debe contener más de :max caracteres.',
     ],
 
+    //El atributo debe ser unico
+    'unique' => 'El :attribute ya ha sido registrado.',
+
+
     //? Traduccion para el nombre de los campos en la db
     // Traducción de los nombres de los parámetros al español en los errores
     'attributes' => [

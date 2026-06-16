@@ -12,7 +12,7 @@ class ShiftRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -41,7 +41,7 @@ class ShiftRequest extends FormRequest
 
             'end_time' => [
                 'required',
-                'date_format:H:i:s',
+                'date_format:H:i',
                 'after:date:start_time' // Valida que el turno no termine antes de que empiece
                 ]
         ];

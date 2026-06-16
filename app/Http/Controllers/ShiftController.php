@@ -23,7 +23,7 @@ class ShiftController extends Controller
     //? Guarda una Turno recien creada en la base de datos
     public function store(ShiftRequest $request){
         Shift::create($request->validated());
-        return redirect()->route('shifts.index')->with('success','Shift Creada');
+        return redirect()->route('shifts.index')->with('success','Turno Creado');
     }
 
     //? Muestra una Turno especifica (opcional, pero mejor que este)
@@ -43,13 +43,13 @@ class ShiftController extends Controller
         // $shift = Shift::update($request->validated());
         $shift->update($request->validated());
 
-        return redirect()->route('shifts.index')->with('success', 'Turno Actualizada');
+        return redirect()->route('shifts.index')->with('success', 'Turno Actualizado');
     }
 
     public function destroy(string $id){
         $shift = Shift::findOrFail($id);
         $shift->delete();
 
-        return redirect()->route('shifts.index')->with('success', 'Turno Eliminada');
+        return redirect()->route('shifts.index')->with('success', 'Turno Eliminado');
     }
 }

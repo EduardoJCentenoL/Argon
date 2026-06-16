@@ -23,7 +23,7 @@ class RoleController extends Controller
     //? Guarda una Rol recien creada en la base de datos
     public function store(RoleRequest $request){
         Role::create($request->validated());
-        return redirect()->route('roles.index')->with('success','Rol Creada');
+        return redirect()->route('roles.index')->with('success','Rol Creado');
     }
 
     //? Muestra una Rol especifica (opcional, pero mejor que este)
@@ -43,13 +43,13 @@ class RoleController extends Controller
         // $role = Role::update($request->validated());
         $role->update($request->validated());
 
-        return redirect()->route('roles.index')->with('success', 'Rol Actualizada');
+        return redirect()->route('roles.index')->with('success', 'Rol Actualizado');
     }
 
     public function destroy(string $id){
         $role = Role::findOrFail($id);
         $role->delete();
 
-        return redirect()->route('roles.index')->with('success', 'Rol Eliminada');
+        return redirect()->route('roles.index')->with('success', 'Rol Eliminado');
     }
 }
