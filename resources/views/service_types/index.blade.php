@@ -1,5 +1,5 @@
 @extends('layouts.panel')
-@section('title', 'Specialties / Index')
+@section('title', 'Service_types / Index')
 
 @section('content')
     <div class="container-fluid">
@@ -8,9 +8,9 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                            <span id="card_title">{{ __('Specialties') }}</span>
+                            <span id="card_title">{{ __('Service_types') }}</span>
                             <div class="float-right">
-                                <a href="{{ route('specialties.create') }}" class="btn btn-primary btn-sm float-right">
+                                <a href="{{ route('service_types.create') }}" class="btn btn-primary btn-sm float-right">
                                     {{ __('Crear Nuevo') }}
                                 </a>
                             </div>
@@ -32,14 +32,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($specialties as $item)
+                                    @foreach ($service_types as $item)
                                         <tr>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->name }}</td>
                                             <td>{{ $item->specialty_description }}</td>
                                             <td>
-                                                <form action="{{ route('specialties.destroy', $item->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-success" href="{{ route('specialties.edit', $item->id) }}">
+                                                <form action="{{ route('service_types.destroy', $item->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-success" href="{{ route('service_types.edit', $item->id) }}">
                                                         <i class="fa fa-fw fa-edit"></i> {{ __('Editar') }}
                                                     </a>
                                                     @csrf
